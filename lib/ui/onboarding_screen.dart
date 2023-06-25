@@ -61,7 +61,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 description: Constants.descriptionThree,
               ),
               createPage(
-                image: 'assets/plant-six.png',
+                image: 'assets/plant-eight.png',
                 title: Constants.titleOne,
                 description: Constants.descriptionOne,
               ),
@@ -101,7 +101,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                         }
                       } else {
                         Navigator.pushReplacement(context,
-                            MaterialPageRoute(builder: (_) =>  SignInScreen())); // AuthService().handleAuthState()s
+                            MaterialPageRoute(builder: (_) =>  SignInScreen())); 
                       }
                     });
                   },
@@ -117,9 +117,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
     );
   }
 
-  //Extra Widgets
 
-  //Create the indicator decorations widget
+  // the indicator decorations widget
   Widget _indicator(bool isActive) {
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),

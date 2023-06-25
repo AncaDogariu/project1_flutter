@@ -15,11 +15,6 @@ class _DetailPageState extends State<DetailPage> {
   bool toggleIsFavorated(bool isFavorited) {
     return !isFavorited;
   }
-
-  //Toggle add remove from cart
-  bool toggleIsSelected(bool isSelected) {
-    return !isSelected;
-  }
   
      Future<void> _launchURL(String url) async {
     final Uri uri = Uri(scheme: "https", host: url);

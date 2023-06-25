@@ -1,6 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_app_1/reusable_widgets/reusable_widget.dart';
-import 'package:flutter_app_1/screens/home_screen.dart';
 import 'package:flutter_app_1/screens/reset_password.dart';
 import 'package:flutter_app_1/screens/signup_screen.dart';
 import 'package:flutter_app_1/utils/color_utils.dart'; 

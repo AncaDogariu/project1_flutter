@@ -25,7 +25,7 @@ const kBgColor = Color(0xFFFFFFFF);
 const kTitleTextStyle = TextStyle(
   fontFamily: kDisplayFont,
   fontSize: 40.0,
-  color: kColorAndroidGreen,
+  color: Color.fromARGB(255, 17, 136, 8),
   decoration: TextDecoration.none,
   
 );
@@ -38,8 +38,9 @@ const kAnalyzingTextStyle = TextStyle(
 
 const kResultTextStyle = TextStyle(
     fontFamily: kDisplayFont,
-    fontSize: 35.0,
-    color: kColorAndroidGreen,
+    fontSize: 30.0,
+    // color: kColorAndroidGreen,
+      color: Color.fromARGB(255, 17, 136, 8),
     decoration: TextDecoration.none);
 
 const kResultRatingTextStyle = TextStyle(

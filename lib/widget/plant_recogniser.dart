@@ -9,13 +9,8 @@ import '../classifier/classifier.dart';
 import '../constants.dart';
 import '../styles.dart';
 import 'plant_photo_view.dart';
-// import 'package:firebase_storage/firebase_storage.dart' as firebase_storage;
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart' as path;
-
-
-// const _labelsFileName = 'assets/labels.txt';
-// const _modelFileName = 'model_287_flowers.tflite'; 
 
 const _labelsFileName = 'assets/labels.txt';
 const _modelFileName = 'best_float32p.tflite'; 
@@ -190,22 +185,6 @@ class _PlantRecogniserState extends State<PlantRecogniser> {
   }
 
 
-// Future<String> _uploadImageToFirebase(File imageFile) async {
-//   try {
-//     String fileName = DateTime.now().millisecondsSinceEpoch.toString();
-//     firebase_storage.Reference ref =
-//         firebase_storage.FirebaseStorage.instance.ref().child(fileName);
-//     await ref.putFile(imageFile);
-//     String imageUrl = await ref.getDownloadURL();
-//     return imageUrl;
-//   } catch (e) {
-//     print('Error uploading image to Firebase Storage: $e');
-//     throw e; // Aruncare excepție în caz de eroare
-//   }
-// }
-
-
-
   void _setAnalyzing(bool flag) {
     setState(() {
       _isAnalyzing = flag;
@@ -263,7 +242,7 @@ class _PlantRecogniserState extends State<PlantRecogniser> {
     var title = '';
 
     if (_resultStatus == _ResultStatus.notFound) {
-      title = 'Fail to recognise';
+      title = '${_plantLabel}: unreliable result';
     } else if (_resultStatus == _ResultStatus.found) {
       title = _plantLabel;
     } else {
@@ -271,7 +250,7 @@ class _PlantRecogniserState extends State<PlantRecogniser> {
     }
 
     var accuracyLabel = '';
-    if (_resultStatus == _ResultStatus.found) {
+    if (_resultStatus == _ResultStatus.found || _resultStatus == _ResultStatus.notFound) {
       accuracyLabel = 'Accuracy: ${(_accuracy * 100).toStringAsFixed(2)}%';
     }
 

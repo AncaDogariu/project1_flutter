@@ -118,27 +118,6 @@ class Classifier {
     return topResult;
   }
 
-  List<ClassifierCategory> _postProcessOutput(TensorBuffer outputBuffer) {
-    // instance of TensorProcessorBuilder to parse and process the output
-    final probabilityProcessor = TensorProcessorBuilder().build();
-    probabilityProcessor.process(outputBuffer);
-
-    // Map output values to the labels.
-    final labelledResult = TensorLabel.fromList(_labels, outputBuffer); // association between labels and scores(outputbuffer values)
-
-    // Build category instances with the list of label – score records
-    final categoryList = <ClassifierCategory>[];
-    labelledResult.getMapWithFloatValue().forEach((key, value) {
-      final category = ClassifierCategory(key, value);
-      categoryList.add(category);
-      debugPrint('label: ${category.label}, score: ${category.score}');
-    });
-
-    // Sort the list to place the most likely result first
-    categoryList.sort((a, b) => (b.score > a.score ? 1 : -1));
-
-    return categoryList;
-  }
 
  TensorImage _preProcessInput(Image image) {
     // Create the TensorImage and load the image data to it
@@ -168,34 +147,29 @@ class Classifier {
     // Return the preprocessed image
     return inputTensor;
   } 
+  
+  List<ClassifierCategory> _postProcessOutput(TensorBuffer outputBuffer) {
+    // instance of TensorProcessorBuilder to parse and process the output
+    final probabilityProcessor = TensorProcessorBuilder().build();
+    probabilityProcessor.process(outputBuffer);
 
+    // Map output values to the labels.
+    final labelledResult = TensorLabel.fromList(_labels, outputBuffer); // association between labels and scores(outputbuffer values)
 
-// TensorImage _preProcessInput(Image image) {
-//   // #1
-//   final inputTensor = TensorImage(_model.inputType);
-//   inputTensor.loadImage(image);
+    // Build category instances with the list of label – score records
+    final categoryList = <ClassifierCategory>[];
+    labelledResult.getMapWithFloatValue().forEach((key, value) {
+      final category = ClassifierCategory(key, value);
+      categoryList.add(category);
+      debugPrint('label: ${category.label}, score: ${category.score}');
+    });
 
-//   // #2
-//   final targetSize = 224;
-//   final aspectRatio = inputTensor.width / inputTensor.height;
-//   final resizeWidth = (aspectRatio >= 1.0) ? targetSize : (targetSize * aspectRatio).round();
-//   final resizeHeight = (aspectRatio >= 1.0) ? (targetSize / aspectRatio).round() : targetSize;
-//   final resizeOp = ResizeOp(resizeWidth, resizeHeight, ResizeMethod.BILINEAR);
+    // Sort the list to place the most likely result first
+    categoryList.sort((a, b) => (b.score > a.score ? 1 : -1));
 
-//   // #3
-//   final normalizeOp = NormalizeOp(127.5, 127.5);
+    return categoryList;
+  }
 
-//   // #4
-//   final imageProcessor = ImageProcessorBuilder()
-//       .add(resizeOp)
-//       .add(normalizeOp)
-//       .build();
-
-//   imageProcessor.process(inputTensor);
-
-//   // #5
-//   return inputTensor;
-// }
 
 
 }

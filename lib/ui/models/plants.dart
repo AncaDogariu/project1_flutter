@@ -23,7 +23,7 @@ class Plant {
         required this.decription,
         required this.isSelected});
 
-  //List of Plants data
+  //List of Plants 
   static List<Plant> plantList = [
     Plant(
         plantId: 0,
@@ -70,7 +70,7 @@ class Plant {
         size: 'Medium',
         humidity: 75,
         temperature: '18 - 27',
-        imageURL: 'assets/barbare_vulgaris.PNG',
+        imageURL: 'assets/ant.png',
         isFavorated: false,
         decription:
         'Anthurium andraeanum, commonly known as Flamingo Flower or Painter\'s Palette, is a popular tropical plant native to Colombia and Ecuador. It is characterized by its glossy, heart-shaped leaves and vibrant, waxy flowers. The flowers come in various colors, including shades of red, pink, and white, with a distinctive spadix and colorful spathe.',
@@ -102,11 +102,11 @@ class Plant {
     Plant(
         plantId: 6,
         category: 'Outdoor',
-        plantName: 'Cirsium vulgare,',
+        plantName: 'Cirsium vulgare',
         size: 'Medium',
         humidity: 46,
         temperature: '10 - 29',
-        imageURL: 'assets/cirsium-vulgare.png',
+        imageURL: 'assets/cirsium.png',
         isFavorated: false,
         decription:
         'Cirsium vulgare, commonly known as Bull Thistle or Spear Thistle, is a biennial flowering plant that is native to Europe and Asia. It is recognized for its tall, spiky appearance and distinctive purple or pinkish flowers.'

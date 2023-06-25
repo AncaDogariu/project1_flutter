@@ -49,13 +49,6 @@ class ProfilePage extends StatelessWidget {
                 width: size.width * .3,
                 child: Row(
                   children: [
-                    // Text(
-                    //   'exemplu1 ',
-                    //   style: TextStyle(
-                    //     color: Constants.blackColor,
-                    //     fontSize: 20,
-                    //   ),
-                    // ),
                     Text(
         FirebaseAuth.instance.currentUser?.displayName ?? '', 
         style: TextStyle(
