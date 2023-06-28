@@ -38,7 +38,7 @@ const kAnalyzingTextStyle = TextStyle(
 
 const kResultTextStyle = TextStyle(
     fontFamily: kDisplayFont,
-    fontSize: 30.0,
+    fontSize: 25.0,
     // color: kColorAndroidGreen,
       color: Color.fromARGB(255, 17, 136, 8),
     decoration: TextDecoration.none);

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_app_1/constants.dart';
 import 'package:flutter_app_1/ui/models/plants.dart';
 import 'package:url_launcher/url_launcher.dart';
+
 class DetailPage extends StatefulWidget {
   final int plantId;
   const DetailPage({Key? key, required this.plantId}) : super(key: key);

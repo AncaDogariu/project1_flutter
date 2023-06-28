@@ -11,7 +11,7 @@ class PlantPhotoView extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 400,
-      height: 450,
+      height: 350,
       color: kColorButtons,
       child: (file == null)
           ? _buildEmptyView()

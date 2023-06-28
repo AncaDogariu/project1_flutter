@@ -31,7 +31,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
               onTap: () {
                 Navigator.pushReplacement(
                     context, MaterialPageRoute(builder: (_) => SignInScreen()));
-              }, //to login screen. We will update later
+              }, 
               child: const Text(
                 'Skip',
                 style: TextStyle(
